@@ -1,6 +1,6 @@
 # Installation Guide
 
-This guide will walk you through setting up the Star Wars Character Explorer application on your local machine.
+This guide will walk through setting up the Star Wars Character Explorer application on your local machine.
 
 ## Prerequisites
 
@@ -26,10 +26,10 @@ Before you begin, ensure you have the following installed on your system:
 
 ```bash
 # Using HTTPS
-git clone https://github.com/your-username/star-wars-character-explorer.git
+git clone https://github.com/your-username/....
 
 # Or using SSH
-git clone git@github.com:your-username/star-wars-character-explorer.git
+git clone git@github.com:your-username/....
 
 # Navigate to the project directory
 cd star-wars-character-explorer
@@ -70,7 +70,7 @@ NODE_ENV=development
 SWAPI_BASE_URL=https://swapi.tech/api
 
 # CORS Configuration
-FRONTEND_URL=http://localhost:5173
+FRONTEND_URL=http://localhost:5173(local env)
 ```
 
 #### 2.4 Verify Backend Installation
@@ -177,54 +177,6 @@ yarn install
 yarn dev
 ```
 
-### Using Docker (Optional)
-
-If you have Docker installed, you can run the application in containers:
-
-#### Backend Docker Setup
-```bash
-cd backend
-
-# Create Dockerfile
-cat > Dockerfile << EOF
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-EXPOSE 3001
-CMD ["npm", "start"]
-EOF
-
-# Build and run
-docker build -t star-wars-backend .
-docker run -p 3001:3001 --env-file .env star-wars-backend
-```
-
-#### Frontend Docker Setup
-```bash
-cd frontend
-
-# Create Dockerfile
-cat > Dockerfile << EOF
-FROM node:18-alpine as build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-EOF
-
-# Build and run
-docker build -t star-wars-frontend .
-docker run -p 5173:80 star-wars-frontend
-```
 
 ## Development Workflow
 
@@ -422,4 +374,4 @@ If you need additional help:
 
 ---
 
-**Happy coding! May the Force be with you!** ⭐
+**Happy coding!** ⭐

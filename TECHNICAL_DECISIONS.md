@@ -318,8 +318,9 @@ This document explains the key technical decisions made during the development o
 **Structure Principles**:
 - Separate frontend and backend projects
 - Group related functionality together
-- Clear naming conventions
 - Consistent file organization
+- Clear naming conventions
+
 
 ## Future Considerations
 

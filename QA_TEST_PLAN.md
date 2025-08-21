@@ -639,7 +639,6 @@ Additional Notes: [Any other relevant information]
 ### Automated Testing
 - **Frontend**: Vitest, React Testing Library
 - **Backend**: Jest, Supertest
-- **E2E**: Cypress (future implementation)
 
 ### Manual Testing
 - **Browser DevTools**: For debugging and performance
