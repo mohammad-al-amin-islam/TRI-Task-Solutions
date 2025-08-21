@@ -1,0 +1,117 @@
+.search-bar {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--background-card);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input-container:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255, 232, 31, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  color: var(--text-light);
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.search-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.search-input {
+  width: 100%;
+  padding: 15px 50px 15px 50px;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 16px;
+  outline: none;
+  border-radius: 6px;
+}
+
+.search-input::placeholder {
+  color: var(--text-light);
+  opacity: 0.6;
+}
+
+.search-clear {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-clear:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-light);
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    padding: 12px 45px 12px 45px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .search-icon {
+    left: 12px;
+  }
+  
+  .search-clear {
+    right: 12px;
+  }
+}
+
+/* Focus styles for accessibility */
+.search-clear:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Animation for search spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
