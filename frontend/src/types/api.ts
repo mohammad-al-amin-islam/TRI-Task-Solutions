@@ -12,6 +12,8 @@ export interface Character {
   homeworld?: Planet;
   films: Film[];
   species: Species[];
+  vehicles: Vehicles[];
+  starships: Starship[];
   image_url?: string;
   created: string;
   edited: string;
@@ -44,6 +46,33 @@ export interface Species {
   average_height: string;
   language: string;
   homeworld?: string;
+}
+export interface Vehicles {
+  id: string;
+  name: string;
+  cargo_capacity: string;
+  passengers: string;
+  max_atmosphering_speed: string;
+  crew: string;
+  length: string;
+  model: string;
+}
+
+export interface Starship {
+  id: string;
+  name: string;
+  consumables: string;
+  cargo_capacity: string;
+  passengers: string;
+  max_atmosphering_speed: string;
+  crew: string;
+  length: string;
+  model: string;
+  cost_in_credits: string;
+  manufacturer: string;
+  starship_class: string;
+  hyperdrive_rating: string;
+  MGLT: string;
 }
 
 // Pagination

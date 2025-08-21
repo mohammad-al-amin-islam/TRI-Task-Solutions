@@ -7,7 +7,9 @@ import {
   SwapiCharacterDetail,
   SwapiPlanet,
   SwapiFilm,
-  SwapiSpecies
+  SwapiSpecies,
+  SwapiVehicle,
+  SwapiStarship
 } from '../types/swapi';
 
 class SwapiClient {
@@ -143,6 +145,22 @@ class SwapiClient {
   async getSpeciesById(id: string): Promise<SwapiSpecies> {
     const response: AxiosResponse<SwapiDetailResponse<SwapiSpecies>> = await this.client.get(
       `/species/${id}`
+    );
+    return response.data.result.properties;
+  }
+
+  // Get vehicle by ID
+  async getVehicleById(id: string): Promise<SwapiVehicle> {
+    const response: AxiosResponse<SwapiDetailResponse<SwapiVehicle>> = await this.client.get(
+      `/vehicles/${id}`
+    );
+    return response.data.result.properties;
+  }
+
+  // Get starship by ID
+  async getStarshipById(id: string): Promise<SwapiStarship> {
+    const response: AxiosResponse<SwapiDetailResponse<SwapiStarship>> = await this.client.get(
+      `/starships/${id}`
     );
     return response.data.result.properties;
   }

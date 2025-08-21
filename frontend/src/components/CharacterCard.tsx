@@ -14,7 +14,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
 }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
-  // const imageError = false;
+  
   const handleImageError = () => {
     setImageError(true);
     setImageLoading(false);
@@ -47,7 +47,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
   return (
     <Link to={`/characters/${character.id}`} className="character-card-link">
       <article className="character-card">
-        <div className="character-image-container">
+        <div className="character-image-container-card">
           {imageLoading && (
             <div className="image-loading">
               <div className="image-spinner"></div>
@@ -72,7 +72,7 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
         </div>
 
         <div className="character-info">
-          <h3 className="character-name">
+          <h3 className="character-name-card">
             {highlightSearchQuery(character.name || "Unknown", searchQuery)}
           </h3>
 

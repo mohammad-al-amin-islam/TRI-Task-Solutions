@@ -78,6 +78,48 @@ export interface SwapiSpecies {
   url: string;
 }
 
+export interface SwapiVehicle {
+  uid:string;
+  created: string;
+  edited: string;
+  consumables: string;
+  name: string;
+  cargo_capacity: string;
+  passengers: string;
+  max_atmosphering_speed: string;
+  crew: string;
+  length: string;
+  model: string;
+  cost_in_credits: string;
+  manufacturer: string;
+  vehicle_class: string;
+  pilots: string[];
+  films: string[];
+  url: string;
+};
+
+export interface SwapiStarship {
+  uid: string;
+  created: string;
+  edited: string;
+  consumables: string;
+  name: string;
+  cargo_capacity: string;
+  passengers: string;
+  max_atmosphering_speed: string;
+  crew: string;
+  length: string;
+  model: string;
+  cost_in_credits: string;
+  manufacturer: string;
+  starship_class: string;
+  hyperdrive_rating: string;
+  MGLT: string;
+  pilots: string[];
+  films: string[];
+  url: string;
+}
+
 // SWAPI API Response Wrappers
 export interface SwapiListResponse<T> {
   message: string;
