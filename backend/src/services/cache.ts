@@ -27,7 +27,6 @@ export class InMemoryCache {
     };
     
     this.cache.set(key, item);
-    console.log(`💾 Cache SET: ${key} (TTL: ${item.ttl}ms)`);
   }
 
   // Get cache item if not expired
@@ -35,18 +34,15 @@ export class InMemoryCache {
     const item = this.cache.get(key);
     
     if (!item) {
-      console.log(`❌ Cache MISS: ${key}`);
       return null;
     }
 
     // Check if expired
     if (Date.now() - item.timestamp > item.ttl) {
       this.cache.delete(key);
-      console.log(`⏰ Cache EXPIRED: ${key}`);
       return null;
     }
 
-    console.log(`✅ Cache HIT: ${key}`);
     return item.data as T;
   }
 
@@ -70,17 +66,12 @@ export class InMemoryCache {
   // Delete specific key
   delete(key: string): boolean {
     const deleted = this.cache.delete(key);
-    if (deleted) {
-      console.log(`🗑️ Cache DELETE: ${key}`);
-    }
     return deleted;
   }
 
   // Clear all cache
   clear(): void {
-    const size = this.cache.size;
     this.cache.clear();
-    console.log(`🧹 Cache CLEARED: ${size} items removed`);
   }
 
   // Destroy cache and cleanup interval
@@ -112,9 +103,7 @@ export class InMemoryCache {
       }
     }
 
-    if (expiredCount > 0) {
-      console.log(`🧹 Cache cleanup: ${expiredCount} expired items removed`);
-    }
+    // Cleanup completed silently
   }
 }
 

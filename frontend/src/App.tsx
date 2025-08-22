@@ -6,7 +6,6 @@ import { NotFound } from './pages/NotFound';
 import './App.css';
 
 function App() {
-  console.log('App component rendering');
   return (
     <Router>
       <div className="app">

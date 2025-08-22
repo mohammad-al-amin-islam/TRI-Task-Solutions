@@ -28,8 +28,6 @@ export const CharacterList: React.FC = () => {
   // Fetch characters
   const fetchCharacters = useCallback(async (params: SearchParams = {}, isPageChange = false) => {
     try {
-      console.log('Fetching characters:', params, 'isPageChange:', isPageChange);
-      
       // Set loading states more carefully
       if (characters.length === 0 && !params.query) {
         // First time loading (no search)
@@ -60,8 +58,6 @@ export const CharacterList: React.FC = () => {
         limit: 12,
         query: params.query
       });
-      
-      console.log('API Response:', response);
       
       // Small delay to prevent rapid state changes
       await new Promise(resolve => setTimeout(resolve, 50));

@@ -18,8 +18,6 @@ export class CharacterController {
 
       if (query) {
         // Comprehensive search: fetch all characters and filter
-        console.log(`🔍 Performing comprehensive search for: "${query}"`);
-        
         const allSwapiCharacters = await swapiClient.getAllCharacters();
         
         // Transform all characters
@@ -60,10 +58,8 @@ export class CharacterController {
           hasPrev: page! > 1
         };
 
-        console.log(`✅ Search results: ${filteredCharacters.length} total matches, showing page ${page} (${characters.length} characters)`);
       } else {
         // Regular pagination: fetch specific page from SWAPI
-        console.log(`📄 Fetching page ${page} with limit ${limit}`);
         
         const swapiResponse = await swapiClient.getCharacters(page, limit);
         
@@ -165,7 +161,6 @@ export class CharacterController {
         timestamp: new Date().toISOString()
       };
 
-      console.log('🧹 Character cache cleared manually');
       res.json(response);
     } catch (error) {
       throw createError(

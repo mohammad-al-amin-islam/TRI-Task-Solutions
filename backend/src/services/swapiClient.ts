@@ -29,7 +29,6 @@ class SwapiClient {
     // Add request interceptor for logging
     this.client.interceptors.request.use(
       (config) => {
-        console.log(`🌐 SWAPI Request: ${config.method?.toUpperCase()} ${config.url}`);
         return config;
       },
       (error) => {
@@ -41,7 +40,6 @@ class SwapiClient {
     // Add response interceptor for error handling
     this.client.interceptors.response.use(
       (response) => {
-        console.log(`✅ SWAPI Response: ${response.status} ${response.config.url}`);
         return response;
       },
       (error) => {
@@ -79,7 +77,6 @@ class SwapiClient {
     // Check cache first
     const cachedCharacters = cache.get<SwapiCharacter[]>(cacheKey);
     if (cachedCharacters) {
-      console.log(`✅ Using cached characters: ${cachedCharacters.length} characters`);
       return cachedCharacters;
     }
 
@@ -87,7 +84,7 @@ class SwapiClient {
     let currentPage = 1;
     let hasNextPage = true;
 
-    console.log('🔄 Fetching all characters from SWAPI for comprehensive search...');
+    // Fetching all characters from SWAPI for comprehensive search
 
     while (hasNextPage) {
       try {
@@ -96,8 +93,6 @@ class SwapiClient {
         
         hasNextPage = !!response.next;
         currentPage++;
-        
-        console.log(`📄 Fetched page ${currentPage - 1}: ${response.results.length} characters`);
         
         // Add a small delay to be respectful to the API
         if (hasNextPage) {
@@ -109,8 +104,6 @@ class SwapiClient {
       }
     }
 
-    console.log(`✅ Total characters fetched: ${allCharacters.length}`);
-    
     // Cache the results for 30 minutes (1800000ms)
     cache.set(cacheKey, allCharacters, 1800000);
     

@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { errorHandler } from './middleware/errorHandler';
 import { requestLogger } from './middleware/requestLogger';
+// API routes
+import characterRoutes from './routes/characterRoutes';
 
 // Load environment variables
 dotenv.config();
@@ -41,9 +43,6 @@ app.get('/', (req, res) => {
   });
 });
 
-// API routes
-import characterRoutes from './routes/characterRoutes';
-
 app.use('/api/characters', characterRoutes);
 
 // Error handling middleware (must be last)
@@ -64,8 +63,6 @@ app.use('*', (req, res) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🔗 Health check: http://localhost:${PORT}/health`);
 });
 
 export default app;
