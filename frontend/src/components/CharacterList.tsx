@@ -79,14 +79,12 @@ export const CharacterList: React.FC = () => {
   const handleSearch = (query: string) => {
     setSearchQuery(query);
     setCurrentPage(1);
-    // Don't call fetchCharacters here - let useEffect handle it
   };
 
   // Handle page change
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Don't call fetchCharacters here - let useEffect handle it
   };
 
   // Handle retry
