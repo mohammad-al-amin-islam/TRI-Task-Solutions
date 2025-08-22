@@ -11,7 +11,7 @@ The Star Wars Character Explorer follows a modern three-tier architecture:
 ## Technology Stack
 
 ### Frontend Stack
-- **React 18**: Modern React with hooks and functional components
+- **React 19**: Modern React with hooks and functional components
 - **TypeScript**: Type safety and better developer experience
 - **Vite**: Fast build tool and development server
 - **React Router**: Client-side routing
